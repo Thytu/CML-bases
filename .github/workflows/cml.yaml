@@ -11,12 +11,18 @@ jobs:
       - name: Train model
         # env:
           # REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        installs: pip install -r requirements.txt > /dev/null
-        run: python main.py
-        exports: |
-            cat ./artifacts/log.txt >> report.md
-            cml-publish ./artifacts/plot.png --md >> report.md
-            cml-send-comment report.md
+        run:
+            using: "composite"
+              steps: 
+                - run: pip install -r requirements.txt > /dev/null
+                  shell: bash
+                - run: python main.py
+                  shell: bash
+                - run: |
+                    cat ./artifacts/log.txt >> report.md
+                    cml-publish ./artifacts/plot.png --md >> report.md
+                    cml-send-comment report.md
+                  shell: bash
         # run: |
           # pip install -r requirements.txt > /dev/null
           # python main.py
