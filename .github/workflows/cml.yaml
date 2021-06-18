@@ -2,7 +2,8 @@ name: model-training
 on: [push]
 jobs:
   run:
-    runs-on: [ubuntu-latest]
+    # runs-on: [ubuntu-latest]
+    runs-on: [pytorch/pytorch]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
@@ -10,10 +11,16 @@ jobs:
       - name: Train model
         # env:
           # REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          pip install -r requirements.txt
-          python main.py
+        installs: pip install -r requirements.txt > /dev/null
+        run: python main.py
+        exports: |
+            cat ./artifacts/log.txt >> report.md
+            cml-publish ./artifacts/plot.png --md >> report.md
+            cml-send-comment report.md
+        # run: |
+          # pip install -r requirements.txt > /dev/null
+          # python main.py
           # depth = 5
-          cat ./artifacts/log.txt >> report.md
-          cml-publish ./artifacts/plot.png --md >> report.md
-          cml-send-comment report.md
+          # cat ./artifacts/log.txt >> report.md
+          # cml-publish ./artifacts/plot.png --md >> report.md
+          # cml-send-comment report.md
