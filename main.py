@@ -86,8 +86,6 @@ for epoch in range(EPOCHS):
     test()
 
 
-fig = plt.figure()
-
 plt.plot(list(range(1, len(training_accuracies)+1)), training_accuracies, color='blue')
 plt.plot(list(range(1, len(testing_accuracies)+1)), testing_accuracies, color='red')
 
