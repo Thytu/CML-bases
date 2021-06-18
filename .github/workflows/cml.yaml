@@ -13,7 +13,7 @@ jobs:
           # REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run:
             using: "composite"
-              steps: 
+            steps: 
                 - run: pip install -r requirements.txt > /dev/null
                   shell: bash
                 - run: python main.py
