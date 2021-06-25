@@ -19,12 +19,12 @@ stages:
       size: 141270719
       nfiles: 10
     - path: main.py
-      md5: 4b2f7876cae50d5c1ecc23f3e7ac388a
+      md5: 665e874d8af05cdcadb1a560e2327cbd
       size: 2479
     outs:
     - path: ./artifacts/log.txt
-      md5: 7110f19b8f5ceaeb7f8eed36ccaaeea0
-      size: 226
+      md5: bdb9c7cb69d350296287852d78bdc985
+      size: 228
     - path: ./artifacts/plot.png
-      md5: 3ec44782738ea9b84030eff01277fb17
-      size: 25187
+      md5: ecd1f062217a4069e2f1bd38020b0a54
+      size: 27968
