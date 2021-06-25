@@ -8,11 +8,11 @@ class Network(nn.Module):
         super().__init__()
 
         self.main = nn.Sequential(
-            nn.Linear(28 * 28, 300),
+            nn.Linear(28 * 28, 100),
             nn.ReLU(),
-            nn.Linear(300, 100),
+            nn.Linear(100, 50),
             nn.ReLU(),
-            nn.Linear(100, 10),
+            nn.Linear(50, 10),
             nn.Sigmoid(),
         )
 

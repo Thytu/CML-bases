@@ -86,11 +86,11 @@ for epoch in range(EPOCHS):
     test()
 
 
-# plt.plot(list(range(1, len(training_accuracies)+1)), training_accuracies, color='blue')
-# plt.plot(list(range(1, len(testing_accuracies)+1)), testing_accuracies, color='red')
-# 
-# plt.legend(['Train Accuracy', 'Test Accuracy'], loc='upper right')
-# plt.xlabel('Epoch')
-# plt.ylabel('Accuracy')
-# 
-# plt.savefig("./artifacts/plot.png")
+plt.plot(list(range(1, len(training_accuracies)+1)), training_accuracies, color='blue')
+plt.plot(list(range(1, len(testing_accuracies)+1)), testing_accuracies, color='red')
+
+plt.legend(['Train Accuracy', 'Test Accuracy'], loc='upper right')
+plt.xlabel('Epoch')
+plt.ylabel('Accuracy')
+
+plt.savefig("./artifacts/plot.png")
