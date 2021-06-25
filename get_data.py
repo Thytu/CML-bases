@@ -29,3 +29,6 @@ def get_mnist(batch_size=32, target_directory="./data/") -> ("train_loader, vali
     )
 
     return train_loader, valid_loader
+
+if __name__ == "__main__" :
+    get_mnist()

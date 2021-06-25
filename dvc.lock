@@ -1,0 +1,30 @@
+schema: '2.0'
+stages:
+  get_data:
+    cmd: python get_data.py
+    deps:
+    - path: get_data.py
+      md5: 3201c66acd6903097421e37d4310fc59
+      size: 859
+    outs:
+    - path: ./data
+      md5: d0d1cb80e59556b243a11ef45918234c.dir
+      size: 141270719
+      nfiles: 10
+  train:
+    cmd: python main.py
+    deps:
+    - path: data
+      md5: d0d1cb80e59556b243a11ef45918234c.dir
+      size: 141270719
+      nfiles: 10
+    - path: main.py
+      md5: 4b2f7876cae50d5c1ecc23f3e7ac388a
+      size: 2479
+    outs:
+    - path: ./artifacts/log.txt
+      md5: 7110f19b8f5ceaeb7f8eed36ccaaeea0
+      size: 226
+    - path: ./artifacts/plot.png
+      md5: 3ec44782738ea9b84030eff01277fb17
+      size: 25187

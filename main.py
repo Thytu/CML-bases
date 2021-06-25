@@ -4,7 +4,7 @@ import torch.optim as optim
 import torch.nn.functional as F
 import matplotlib.pyplot as plt
 
-from data import get_mnist
+from get_data import get_mnist
 from network import Network
 
 EPOCHS=3
@@ -12,6 +12,7 @@ BATCH_SIZE=32
 LEARNING_RATE=0.001
 
 train_loader, test_loader = get_mnist(BATCH_SIZE)
+
 TRAINING_SIZE = BATCH_SIZE * len(train_loader)
 TESTING_SIZE = BATCH_SIZE * len(test_loader)
 
@@ -28,7 +29,7 @@ else:
     for file in os.listdir("./artifacts/"):
         os.remove(f"./artifacts/{file}")
 
-f = open("artifacts/log.txt", "w")
+f = open("./artifacts/log.txt", "w")
 
 def get_num_correct(preds, labels) -> int:
     return preds.argmax(dim=1).eq(labels).sum().item()

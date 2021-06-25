@@ -1,0 +1,17 @@
+stages:
+  get_data:
+    cmd: python get_data.py
+    deps:
+    - get_data.py
+    outs:
+    - ./data
+  train:
+    cmd: python main.py
+    deps:
+    - main.py
+    - data
+    outs:
+    - ./artifacts/plot.png
+    metrics:
+    - ./artifacts/log.txt:
+       cache: false
