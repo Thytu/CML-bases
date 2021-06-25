@@ -9,7 +9,7 @@ from network import Network
 
 EPOCHS=3
 BATCH_SIZE=32
-LEARNING_RATE=0.001
+LEARNING_RATE=0.002
 
 train_loader, test_loader = get_mnist(BATCH_SIZE)
 
